@@ -1,0 +1,64 @@
+﻿@model GetTransactionAccountViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Transactions</h1>
+
+@if (Model.Transactions.Count() == 0)
+{
+    <h3>You have not done any transactions yet 
+        <a asp-action="Create">
+            click here to create new transaction
+        </a>
+    </h3>  
+}
+else
+{
+    <p>
+        <a  class="btn btn-danger rounded-pill" asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th> 
+                <th>Creation Date</th>
+                <th>Description</th>                                  
+                <th>Account Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var account in Model.Accounts)
+            {
+                @foreach (var transaction in Model.Transactions)
+                {
+                    <tr>
+                    @if (account.Id == transaction.AccountId)
+                    {
+                        <td>@transaction.Name</td>
+                        <td>@transaction.Amount</td>
+                        <td>@transaction.CreationDate</td>
+                        <td>@transaction.Description</td>
+                        <td>@account.Name</td>
+                        <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=transaction.Id}) |
+                        @Html.ActionLink("Delete", "Delete", new { id= transaction.Id})
+                        </td>
+                    }
+                    </tr>
+                }    
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                   Total amount: @Model.Transactions.Sum(item => item.Amount)
+                </td>
+            </tr>
+        </tfoot>
+    </table>    
+}
+

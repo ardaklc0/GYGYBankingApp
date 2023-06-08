@@ -1,0 +1,75 @@
+﻿@model BankingApp.DataTransferObject.Requests.CreateNewTransactionRequest
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+    .btn{
+        background-color: #417c30 !important;
+        box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.5) !important;
+        border: none !important;
+    }
+    .btn:hover{
+        background-color: #3e8e41 !important;
+    }
+    .btn:active{
+        background-color: #3e8e41 !important;
+        box-shadow: 0px 0px 0px 0px !important;
+        transform: translateY(4px) !important;
+    }
+
+    .form-control{
+        box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    }
+    .form-control:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    }
+</style>
+
+<h1>Create a new transaction</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group p-2 mb-2">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control  rounded-pill" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group p-2 mb-2">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control  rounded-pill" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group p-2 mb-2">
+                <label asp-for="CreationDate" class="control-label"></label>
+                <input asp-for="CreationDate" class="form-control  rounded-pill" />
+                <span asp-validation-for="CreationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group p-2 mb-2">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control  rounded-pill" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group p-2 mb-2">
+                <label asp-for="AccountId" class="control-label"></label>
+                <select asp-for="AccountId" class="form-control  rounded-pill" asp-items="ViewBag.Accounts"></select>
+                <span asp-validation-for="AccountId" class="text-danger"></span>
+            </div>
+            <div class="form-group p-2 mb-2">
+                <input type="submit" value="Create" class="btn btn-primary rounded-pill" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
