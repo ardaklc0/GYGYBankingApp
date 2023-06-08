@@ -32,6 +32,13 @@ For user:
 ![image](https://github.com/ardaklc0/GYGYBankingApp/assets/87716329/b1582e90-8477-4295-90e6-bff4134f9bb5)
 There is some additional process for User Settings in Admin Settings. If one click on "Edit" then will see everything including Role, but Password of User:
 ![image](https://github.com/ardaklc0/GYGYBankingApp/assets/87716329/499f41df-4a08-4b12-ba38-f0cbff0729dc)
+For the delete again Admin cannot see Password of User:
+![image](https://github.com/ardaklc0/GYGYBankingApp/assets/87716329/66e90175-67fe-4e48-8a79-0822841a423b)
+For Client if the User does not have any transaction then we have: 
+![image](https://github.com/ardaklc0/GYGYBankingApp/assets/87716329/1908d0f1-0501-4c09-a1b5-dceac9602dc0)
+In the User Settings ona can see his/her Password:
+![image](https://github.com/ardaklc0/GYGYBankingApp/assets/87716329/c3944e29-227b-4aa5-b300-e4de072abd7a)
+
 
 
 
